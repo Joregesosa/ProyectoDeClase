@@ -57,4 +57,8 @@ const users =
     },
 ];
 
+users.forEach(user => {
+    listarUsuarios(user.name, user.userId);
+});
+
 
