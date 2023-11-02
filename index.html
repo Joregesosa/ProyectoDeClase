@@ -11,23 +11,28 @@
     <div class="container">
       <div class="sideBarContainer">
         <h2>Lista de Usuarios</h2>
-        <ul id="userList">
-          <!-- <li class="userListItem">
-                <span class="imgConatiner">
-                    <img src="https://robohash.org/138.36.78.25.png" alt="user avatar">
-                </span>
-                <h3 class="userName">
-                    Nombre Usuario
-                </h3>
-            </li> -->
-        </ul>
+        <ul id="userList"></ul>
       </div>
 
       <div class="ChatContainer" id="container">
-         <ul id="messsagesContainer">
+        <ul id="messsagesContainer">
+          <li class="generalBox">
+            <!-- https://robohash.org/138.36.78.${userId}.png -->
 
-         
-         </ul>
+            <div class="imgBox">
+              <img src="https://robohash.org/138.36.78.25.png" alt="" />
+            </div>
+            <div class="messageBox">
+              <div class="top">
+                <h3>Nombre usuario</h3>
+                <h4>Fecha</h4>
+              </div>
+              <div class="bot">
+                <p>Soy el mensaje</p>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </body>
