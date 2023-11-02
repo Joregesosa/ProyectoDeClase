@@ -1,5 +1,5 @@
-import { listarUsuarios } from './utilities.js';
- 
+import { listarUsuarios, chatItem } from './utilities.js';
+
 const chatsList = [
     {
         userId: 1,
@@ -241,30 +241,30 @@ const chatsList = [
             },
         ]
     },]
- 
- chatsList.forEach(chats => {
 
-        for (let i = 0; i < chats.conversacion.length; i++) {
-        
-            if (chats.conversacion[i].remitente !== "Miguel Salinas") {
+chatsList.forEach(chats => {
 
-                listarUsuarios(chats.conversacion[i].remitente, chats.userId)
-                
-                break;
-            }
+    for (let i = 0; i < chats.conversacion.length; i++) {
+
+        if (chats.conversacion[i].remitente !== "Miguel Salinas") {
+
+            listarUsuarios(chats.conversacion[i].remitente, chats.userId)
+
+            break;
         }
-}); 
+    }
+});
 
-const userList =  document.querySelector('#userList');
+const userList = document.querySelector('#userList');
 
-userList.addEventListener('click', (e)=>{
-     const element = e.target.parentElement; 
-        console.log(element);
+userList.addEventListener('click', (e) => {
+    const element = e.target.parentElement;
+    console.log(element);
     // console.log(e.target.closest('li').id)
 });
- 
 
 
-function chat(params) {
-    
-}
+
+
+
+chatItem('Jorge sosa', '25/10/2023', 'soy el mensaje', 32);

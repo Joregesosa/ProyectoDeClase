@@ -1,4 +1,6 @@
 const userList = document.querySelector('#userList');
+const chatList = document.querySelector('#messsagesContainer');
+
 export function listarUsuarios(userName, userId) {
     const li = document.createElement('li');
     li.classList.add('userListItem');
@@ -21,4 +23,41 @@ export function listarUsuarios(userName, userId) {
 
     userList.appendChild(li);
 
+}
+
+export function chatItem(nombre, fecha, mensaje, userId) {
+    const li = document.createElement('li');
+    li.classList.add('generalBox');
+
+    const divImgConatiner = document.createElement('div');
+    divImgConatiner.classList.add('imgBox')
+
+    const img = document.createElement('img');
+    img.src = `https://robohash.org/138.36.78.${userId}.png`
+    img.alt = 'user avatar'
+
+    const divMessageContainer = document.createElement('div');
+    divMessageContainer.classList.add('messageBox');
+
+    const divMessageHead = document.createElement('div');
+    divMessageHead.classList.add('top');
+
+    const h3 = document.createElement('h3');
+    h3.textContent = nombre;
+
+    const h4 = document.createElement('h4');
+    h4.textContent = fecha;
+
+    const divMessage = document.createElement('div');
+    divMessage.classList.add('bot');
+    const p = document.createElement('p');
+    p.textContent = mensaje;
+
+    divImgConatiner.appendChild(img);
+    divMessage.appendChild(p);
+    divMessageHead.append(h3, h4);
+    divMessageContainer.append(divMessageHead, divMessage);
+
+    li.append(divImgConatiner, divMessageContainer);
+    chatList.appendChild(li);
 }
