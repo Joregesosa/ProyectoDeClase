@@ -258,15 +258,19 @@ chatsList.forEach(chats => {
 const userList = document.querySelector('#userList');
 
 userList.addEventListener('click', (e) => {
+    e.stopPropagation();
 
-    const element = e.target.parentElement;
-    let tagName = element.tagName;
+
+    // const element = e.target.parentElement;
+    let tagName = e.target.tagName;
 
     if (tagName.toLowerCase() !== 'ul') {
 
+        let element = e.target.closest('li');
+
         document.querySelector('#messsagesContainer').innerHTML = "";
 
-        selectChat(parseInt(element.id))
+        selectChat(parseInt(element.id));
     }
 });
 
