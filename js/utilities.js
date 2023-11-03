@@ -25,10 +25,10 @@ export function listarUsuarios(userName, userId) {
 
 }
 
-export function chatItem(nombre, fecha, mensaje, userId) {
+export function chatItem(nombre, fecha, mensaje, userId, reverse) {
     const li = document.createElement('li');
-    li.classList.add('generalBox');
-
+    li.classList.add('generalBox', reverse);
+    
     const divImgConatiner = document.createElement('div');
     divImgConatiner.classList.add('imgBox')
 

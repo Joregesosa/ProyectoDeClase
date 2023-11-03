@@ -258,10 +258,16 @@ chatsList.forEach(chats => {
 const userList = document.querySelector('#userList');
 
 userList.addEventListener('click', (e) => {
+
     const element = e.target.parentElement;
+    let tagName = element.tagName;
 
-    selectChat(parseInt(element.id))
+    if (tagName.toLowerCase() !== 'ul') {
 
+        document.querySelector('#messsagesContainer').innerHTML = "";
+
+        selectChat(parseInt(element.id))
+    }
 });
 
 
@@ -270,10 +276,19 @@ function selectChat(id) {
     const filteredChat = chatsList.filter(chat => chat.userId === id)
 
     filteredChat[0].conversacion.map(mensaje => {
+        let miguelSalinaId = 78;
 
-        console.log(mensaje);
+        let userId = id;
+        let reverse;
+        let you = mensaje.remitente;
 
-        chatItem(mensaje.remitente, mensaje.fechaEnvio, mensaje.mensaje, id);
+        if (mensaje.remitente === "Miguel Salinas") {
+            userId = miguelSalinaId
+            reverse = 'generalBoxR';
+            you = 'Tú';
+        }
+
+        chatItem(you, mensaje.fechaEnvio, mensaje.mensaje, userId, reverse);
 
     })
 
