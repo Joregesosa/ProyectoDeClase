@@ -59,5 +59,31 @@ export function chatItem(nombre, fecha, mensaje, userId) {
     divMessageContainer.append(divMessageHead, divMessage);
 
     li.append(divImgConatiner, divMessageContainer);
+    
     chatList.appendChild(li);
 }
+
+
+
+
+
+
+// aclarar FormData
+/* const crearAticulo = document.querySelector('#crearAticulo');
+ 
+crearAticulo.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    let data = new FormData(crearAticulo);
+ 
+    for (const value of data.values()) {
+        comprasItem(value)
+    }
+    crearAticulo.reset();
+})
+
+ function comprasItem(articulo) {
+    const li = document.createElement('li');
+    li.textContent = articulo;
+
+    document.querySelector('#listaDeCompras').appendChild(li);
+} */

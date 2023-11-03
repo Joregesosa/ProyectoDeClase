@@ -259,12 +259,23 @@ const userList = document.querySelector('#userList');
 
 userList.addEventListener('click', (e) => {
     const element = e.target.parentElement;
-    console.log(element);
-    // console.log(e.target.closest('li').id)
+
+    selectChat(parseInt(element.id))
+
 });
 
 
 
+function selectChat(id) {
+    const filteredChat = chatsList.filter(chat => chat.userId === id)
 
+    filteredChat[0].conversacion.map(mensaje => {
 
-chatItem('Jorge sosa', '25/10/2023', 'soy el mensaje', 32);
+        console.log(mensaje);
+
+        chatItem(mensaje.remitente, mensaje.fechaEnvio, mensaje.mensaje, id);
+
+    })
+
+}
+
