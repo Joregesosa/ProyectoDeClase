@@ -37,7 +37,7 @@
     gap: 20px;
     list-style: none;
     color: azure;
-
+    padding: 20px;
     overflow: hidden;
 }
 .sideBarContainer > ul:hover{
@@ -70,6 +70,12 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    overflow: hidden;
+}
+#messsagesContainer:hover{
+    overflow-y: scroll;
 }
 #messsagesContainer > .generalBox > .imgBox > img{
     width: 60px;
@@ -87,6 +93,7 @@
     display: flex;
     gap: 20px;
     align-items: center;    
+    width: calc(100% - 20px);
 }
 
 #messsagesContainer > .generalBoxR{
@@ -128,4 +135,46 @@
 .messageBox > .bot > p {
     width: 95%;
     
+}
+
+/* Estilos input */
+.caja_mensaje{
+    position: relative;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto; 
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px; 
+    
+}
+
+.envio{
+    width: 100%;
+   text-align:justify;
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius:5px ;
+   padding-right: 40px;
+}
+#icono{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#icono svg {   
+    margin-left: 10px; 
+}
+
+input{
+    background-color: rgb(74, 72, 99);
+}
+.envio::placeholder{
+    color: rgb(173, 173, 173);
 }

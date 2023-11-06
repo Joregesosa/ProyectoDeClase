@@ -297,4 +297,3 @@ function selectChat(id) {
     })
 
 }
-
