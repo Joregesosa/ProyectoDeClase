@@ -1,5 +1,5 @@
 import { listarUsuarios, chatItem } from './utilities.js';
-
+let selectedUser = 0;
 const chatsList = [
     {
         userId: 1,
@@ -260,8 +260,6 @@ const userList = document.querySelector('#userList');
 userList.addEventListener('click', (e) => {
     e.stopPropagation();
 
-
-    // const element = e.target.parentElement;
     let tagName = e.target.tagName;
 
     if (tagName.toLowerCase() !== 'ul') {
@@ -269,12 +267,10 @@ userList.addEventListener('click', (e) => {
         let element = e.target.closest('li');
 
         document.querySelector('#messsagesContainer').innerHTML = "";
-
-        selectChat(parseInt(element.id));
+        selectedUser = parseInt(element.id)
+        selectChat(selectedUser);
     }
 });
-
-
 
 function selectChat(id) {
     const filteredChat = chatsList.filter(chat => chat.userId === id)
@@ -297,3 +293,36 @@ function selectChat(id) {
     })
 
 }
+
+ 
+const inputMessage = document.querySelector('#inputMessage');
+const sendButton = document.querySelector('#sendButton');
+
+ 
+
+sendButton.addEventListener('click', ()=>{
+
+            let newMessage =  {
+                fechaEnvio: '12/11/2023',
+                mensaje:  inputMessage.value, 
+                remitente: 'Miguel Salinas'
+            }
+
+           const index =  chatsList.findIndex(chat =>
+                chat.userId == selectedUser
+            );
+
+            chatsList[index].conversacion.push(newMessage);
+
+            document.querySelector('#messsagesContainer').innerHTML = "";
+
+            selectChat(selectedUser);
+})
+
+// function newMessage(fechaDeEnvio, mensaje, remitente = "Miguel Salinas") {
+//     return {
+//         fechaEnvio: fechaDeEnvio,
+//         mensaje: mensaje,
+//         remitente: remitente,
+//     }
+// }
