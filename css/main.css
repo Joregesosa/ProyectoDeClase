@@ -69,6 +69,7 @@
 #messsagesContainer {
     display: flex;
     flex-direction: column;
+    /* align-items: start; */
     gap: 12px;
     width: 100%;
     min-height: calc(100vh - 100px);
@@ -93,11 +94,14 @@
     display: flex;
     gap: 20px;
     align-items: center;    
-    max-width: calc(100% - 120px);
+    width: 100%;
+    max-width: 980px;
+    padding: 0 20px;
 }
 
 #messsagesContainer > .generalBoxR{
     flex-direction: row-reverse;
+   
 }
 
 .messageBox{
@@ -178,3 +182,29 @@ input{
 .envio::placeholder{
     color: rgb(173, 173, 173);
 }
+
+/* scrollBar */
+
+
+/* ::-webkit-scrollbar {
+    width: 10px;
+} */
+ 
+/* Track */
+/* ::-webkit-scrollbar-track {
+    background: #888;
+    border-radius: 5px;
+} */
+ 
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 5px;
+} */
+ 
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} */
+
+
