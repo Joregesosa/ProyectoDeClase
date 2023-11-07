@@ -306,12 +306,14 @@ function selectChat(id) {
 const inputMessage = document.querySelector('#inputMessage');
 const sendButton = document.querySelector('#sendButton');
 
-inputMessage.addEventListener('keypress', (e) => {
-    if (e.code === 'Enter') {
+
+function crearMensaje(fechaActual, newMensaje, usuario = 'Miguel Salinas') {
+    if (selectedUser > 0 && inputMessage.value !== '') {
+
         let newMessage = {
-            fechaEnvio: '12/11/2023',
-            mensaje: inputMessage.value,
-            remitente: 'Miguel Salinas'
+            fechaEnvio: fechaActual,
+            mensaje: newMensaje,
+            remitente: usuario,
         }
 
         const index = chatsList.findIndex(chat =>
@@ -324,33 +326,41 @@ inputMessage.addEventListener('keypress', (e) => {
         inputMessage.value = "";
         selectChat(selectedUser);
     }
+
+}
+inputMessage.addEventListener('keypress', (e) => {
+    if (e.code === 'Enter') {
+        let fechaActualFormateada = fechaActual();
+        let newMessage = inputMessage.value;
+
+        crearMensaje(fechaActualFormateada, newMessage);
+    }
 })
 
 sendButton.addEventListener('click', () => {
+    let fechaActualFormateada = fechaActual();
+    let newMessage = inputMessage.value;
 
-    let newMessage = {
-        fechaEnvio: '12/11/2023',
-        mensaje: inputMessage.value,
-        remitente: 'Miguel Salinas'
-    }
-
-    const index = chatsList.findIndex(chat =>
-        chat.userId == selectedUser
-    );
-
-    chatsList[index].conversacion.push(newMessage);
-    localStorage.setItem('chatList', JSON.stringify(chatsList));
-    document.querySelector('#messsagesContainer').innerHTML = "";
-    inputMessage.value = "";
-    selectChat(selectedUser);
+    crearMensaje(fechaActualFormateada, newMessage);
 })
 
-// function newMessage(fechaDeEnvio, mensaje, remitente = "Miguel Salinas") {
-//     return {
-//         fechaEnvio: fechaDeEnvio,
-//         mensaje: mensaje,
-//         remitente: remitente,
-//     }
-// }
+function fechaActual() {
+    let fecha = new Date();
+    let year = fecha.getFullYear();
+    let day = fecha.getDate();
+    let month = fecha.getMonth() + 1;
+    let hora = fecha.getHours();
+    let min = fecha.getMinutes();
+    let second = fecha.getSeconds();
+
+    if (second < 10) second = '0' + second;
+
+    if (min < 10) min = '0' + min;
+
+    let fechaActualFormateada = `${year}-${month}-${day} ${hora}:${min}:${second}`;
+
+    return fechaActualFormateada;
+}
+
 
 
