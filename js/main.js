@@ -264,9 +264,12 @@ chatsList.forEach(chats => {
 });
 
 const userList = document.querySelector('#userList');
-
+const hiddenInput = document.querySelector('#cajaMensaje');
 userList.addEventListener('click', (e) => {
     e.stopPropagation();
+    if(selectedUser !== 0){
+        
+    }
 
     let tagName = e.target.tagName;
 
@@ -328,6 +331,7 @@ function crearMensaje(fechaActual, newMensaje, usuario = 'Miguel Salinas') {
     }
 
 }
+
 inputMessage.addEventListener('keypress', (e) => {
     if (e.code === 'Enter') {
         let fechaActualFormateada = fechaActual();
